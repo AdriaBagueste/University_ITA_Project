@@ -1,4 +1,4 @@
-class Aircrafts:
+class Aircraft:
     
     def __init__(self):
         self.Aircraft_list = []
