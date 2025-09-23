@@ -12,7 +12,7 @@ MLW_B737 = 51.710
 MLW_A320 = 64.500
 MLW_A319 = 61.000
 
-#// Adding all aircrafts in the project
+# Adding all aircrafts in the project
 Aircrafts.add_aircraft('B767-300ER', 'GRAUS3N', MLW_B767)
 Aircrafts.add_aircraft('B777-300', 'MATEX4N', MLW_B777)
 Aircrafts.add_aircraft('B737', 'LOBAR3N', 0.8 * MLW_B737)

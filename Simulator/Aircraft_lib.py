@@ -3,7 +3,7 @@ class Aircraft:
     def __init__(self):
         self.Aircraft_list = []
 
-    def add_aircraft(self, Aircraft_type, Aircraft_STAR, Weight_at_IAF):
+    def add_aircraft(self, Aircraft_type: str, Aircraft_STAR:str, Weight_at_IAF: float):
         
         try:
             Aircraft = {
