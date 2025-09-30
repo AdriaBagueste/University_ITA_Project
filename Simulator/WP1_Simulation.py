@@ -1,6 +1,7 @@
 from Aircraft_lib import Aircraft
 
 Aircrafts = Aircraft()
+STARS = STA
 
 # IAF altitude in ft and m (metres)
 IAF_ALTITUDE_FT = 5000

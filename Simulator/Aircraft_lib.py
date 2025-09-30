@@ -5,7 +5,7 @@ class Aircraft:
 
     def add_aircraft(self, 
                      Aircraft_type: str, 
-                     Aircraft_STAR:str, 
+                     Aircraft_STAR: str, 
                      Max_landing_weight: float, 
                      Max_weight: float, 
                      Max_payload: float, 
@@ -61,5 +61,37 @@ class Aircraft:
                 return aircraft.get(key, None)
             
         return None
+
+class STAR:
+    def __init__(self):
+        self.STAR_list = []
+    
+    def Add_STAR(self,
+                 name: str,
+                 altitude: int):
+        
+        try:
+            STAR = {
+                    "name": name,
+                    "altitude": altitude
+                }
+
+            self.STAR_list.append(Aircraft)
+            
+            return True
+        
+        except Exception as e:
+                print(f"Error at: {e}")
+
+                return False
+        
+    def get_STAR_value(self, type, key):
+        for STAR in self.STAR_list:
+            if STAR[type] == type:
+                return STAR.get(key, None)
+            
+        return None
+        
+   
 
 

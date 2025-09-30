@@ -1,4 +1,5 @@
 import matplotlib as plt
+from Calculator_lib import *
 
 class graph:
     def __init__(self):
