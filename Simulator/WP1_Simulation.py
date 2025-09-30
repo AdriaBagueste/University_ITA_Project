@@ -1,7 +1,9 @@
-from Aircraft_lib import Aircraft
+from Aircraft_lib import Aircraft, STAR
+from Calculator_lib import Calculate
+from Graph_lib import graph
 
 Aircrafts = Aircraft()
-STARS = STA
+STARS = STAR()
 
 # IAF altitude in ft and m (metres)
 IAF_ALTITUDE_FT = 5000
@@ -199,4 +201,30 @@ Aircrafts.add_aircraft(
     CT1_B767_ALBER, CT2_B767_ALBER, CT3_B767_ALBER, CF1_B767_ALBER, CF2_B767_ALBER
 )
 
-print(Aircrafts.__dict__)
+
+def generate_and_plot(output_path: str = None):
+    g = graph()
+    models = [NAME_B767, NAME_B777, NAME_B737, NAME_A320, NAME_A319, NAME_B767_ALBER]
+    weights = [100, 80]
+    print(f"[Main] Generating trajectories for models={models}, weights={weights}")
+    for model in models:
+        for w in weights:
+            print(f"[Main] Computing {model} at {w}% MLW")
+            x, h = Calculate.getCDO(Aircrafts, model, w)
+            print(f"[Main] {model} {w}% -> points: {len(x)}")
+            g.add_data({"x": x, "h": h, "label": f"{model} - {w}% MLW"})
+    if output_path:
+        print(f"[Main] Plotting to {output_path}")
+        g.plot(output_path)
+    else:
+        g.plot()
+
+if __name__ == "__main__":
+    import datetime
+    ts = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    png = f"trajectory_plot_{ts}.png"
+    pdf = f"trajectory_plot_{ts}.pdf"
+    print(f"[Main] Output files: {png}, {pdf}")
+    generate_and_plot(png)
+    # Save PDF as well
+    generate_and_plot(pdf)

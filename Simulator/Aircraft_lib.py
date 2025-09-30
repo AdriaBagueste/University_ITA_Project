@@ -55,11 +55,10 @@ class Aircraft:
 
             return False
         
-    def get_aircraft_value(self, type, key):
+    def get_aircraft_value(self, aircraft_type, key):
         for aircraft in self.Aircraft_list:
-            if aircraft[type] == type:
+            if aircraft.get("type") == aircraft_type:
                 return aircraft.get(key, None)
-            
         return None
 
 class STAR:
@@ -71,12 +70,12 @@ class STAR:
                  altitude: int):
         
         try:
-            STAR = {
+            STAR_entry = {
                     "name": name,
                     "altitude": altitude
                 }
 
-            self.STAR_list.append(Aircraft)
+            self.STAR_list.append(STAR_entry)
             
             return True
         
@@ -85,12 +84,13 @@ class STAR:
 
                 return False
         
-    def get_STAR_value(self, type, key):
-        for STAR in self.STAR_list:
-            if STAR[type] == type:
-                return STAR.get(key, None)
-            
+    def get_STAR_value(self, star_name, key):
+        for star in self.STAR_list:
+            if star.get("name") == star_name:
+                return star.get(key, None)
         return None
+    
+    
         
    
 
